@@ -1,4 +1,7 @@
-const BASE = ''   // Vite proxy handles /auth and /api → localhost:8080
+// In production, VITE_API_BASE_URL must be set to your backend Railway URL
+// e.g. https://quantitymeasurementapp-backend-production.up.railway.app
+// In development, leave it unset and Vite's proxy handles /auth and /api
+const BASE = import.meta.env.VITE_API_BASE_URL || ''
 
 export async function apiFetch(path, { method = 'GET', body, token } = {}) {
   const headers = { 'Content-Type': 'application/json' }

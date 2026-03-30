@@ -6,16 +6,9 @@ import { useAuth } from '../context/AuthContext.jsx'
  * OAuth2Callback
  *
  * After a successful Google/GitHub login, the Spring Boot backend redirects to:
- *   /api/v1/quantities?token=<JWT>
+ *   <FRONTEND_URL>/oauth2/callback?token=<JWT>
  *
- * Because Vite proxies /api → localhost:8080, the browser actually lands on
- * the React app at the root path with ?token= in the URL. This page
- * captures the token, stores it, and navigates to /app.
- *
- * Note: The backend's OAuth2LoginSuccessHandler redirects to
- *   /api/v1/quantities?token=...
- * We need to update that redirect to point to the React frontend's callback
- * route instead: /oauth2/callback?token=...
+ * This page captures the token, stores it, and navigates to /app.
  */
 export default function OAuth2Callback() {
   const { login } = useAuth()
