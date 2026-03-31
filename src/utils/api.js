@@ -1,6 +1,6 @@
-// In production, VITE_API_BASE_URL must be set to your backend Railway URL
-// e.g. https://quantitymeasurementapp-backend-production.up.railway.app
-// In development, leave it unset and Vite's proxy handles /auth and /api
+// api.js
+// In production: VITE_API_BASE_URL = https://qm-backend.onrender.com
+// In development: leave unset — Vite's dev proxy handles /api and /auth
 const BASE = import.meta.env.VITE_API_BASE_URL || ''
 
 export async function apiFetch(path, { method = 'GET', body, token } = {}) {
@@ -13,7 +13,6 @@ export async function apiFetch(path, { method = 'GET', body, token } = {}) {
     body: body ? JSON.stringify(body) : undefined,
   })
 
-  // Try to parse JSON, fall back to text
   const ct = res.headers.get('Content-Type') || ''
   const data = ct.includes('application/json') ? await res.json() : await res.text()
 

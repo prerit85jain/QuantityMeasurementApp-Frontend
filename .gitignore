@@ -1,0 +1,23 @@
+# Dependencies
+node_modules/
+
+# Build output
+dist/
+
+# Vite cache
+.vite/
+
+# Environment files with real secrets — DO NOT commit
+.env.local
+.env.*.local
+
+# NOTE: .env.production IS committed (it only contains the placeholder,
+# the real value is set as a Render environment variable at build time)
+
+# OS
+.DS_Store
+Thumbs.db
+
+# IDE
+.vscode/
+.idea/
