@@ -1,0 +1,17 @@
+# render.yaml — place in the ROOT of your frontend repository
+services:
+  - type: web
+    name: qm-frontend
+    env: static
+    region: oregon
+    buildCommand: "npm install && npm run build"
+    staticPublishPath: ./dist
+    routes:
+      # SPA fallback — all routes serve index.html so React Router works
+      - type: rewrite
+        source: /*
+        destination: /index.html
+    envVars:
+      # Render injects this at build time so Vite can bake in the backend URL
+      - key: VITE_API_BASE_URL
+        sync: false    # set manually: https://qm-backend.onrender.com
