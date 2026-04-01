@@ -180,3 +180,4 @@ For production, update the `vite.config.js` proxy target and the OAuth2 redirect
 | Social login not working | Check that OAuth2 credentials are set in `application.properties` |
 | `Cannot reach backend` | Run `mvn spring-boot:run` first, then start the React dev server |
 | Port 3000 in use | Change `port: 3000` in `vite.config.js` to another port (e.g. 5173) |
+
